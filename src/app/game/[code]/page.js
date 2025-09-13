@@ -365,6 +365,20 @@ export default function GamePage(){
             </select>
             <button className={styles.btn} onClick={()=>patchGame(code, { status:"EnJuego" })}>Iniciar</button>
             <button className={`${styles.btn} ${styles.btnWarn}`} onClick={finishAndPurge}>Finalizar</button>
+          {isHost && data?.game?.swapRequest?.status === "pending" && (
+            <button
+              className={`${styles.btn} ${styles.btnWarn}`}
+              onClick={async ()=>{
+                await swapCancel(code, data.game.swapRequest.id);
+                setSwapConfirmOpen(false);
+                setPendingSwap(null);
+                await refresh();
+              }}
+          >
+              Cancelar intercambio
+          </button>
+        )}
+
           </>
         ) : (
           <span className={styles.pill}>Yo: {myName || "(sin nombre)"} {lookup(myId)?.alive===false?"(X)":""}</span>
@@ -603,8 +617,8 @@ export default function GamePage(){
 
       {/* ===== Modal Confirmación de Intercambio (receptor) ===== */}
       {swapConfirmOpen && pendingSwap && (
-        <div className={styles.modalOverlay} onClick={()=>setSwapConfirmOpen(false)}>
-          <div className={styles.modal} onClick={e=>e.stopPropagation()}>
+        <div className={styles.modalOverlay}>
+          <div className={styles.modal}>
             <h3 className={styles.modalTitle}>Confirmar intercambio</h3>
             <p>¿Seguro/a que quieres intercambiar <b>todos</b> tus GP con <b>{nameOf(pendingSwap.fromId)}</b>?</p>
             <div className={styles.modalActions}>
