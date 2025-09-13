@@ -1,0 +1,131 @@
+/* ===== Layout generales ===== */
+.container { max-width: 1100px; margin: 24px auto; padding: 0 16px; }
+.title { margin: 0 0 12px 0; font-weight: 700; }
+
+.toolbar {
+  display: flex; gap: 8px; align-items: center;
+  margin-bottom: 12px; flex-wrap: wrap;
+}
+
+.pill {
+  display: inline-flex; align-items: center;
+  padding: 6px 12px; border-radius: 999px;
+  border: 1px solid #23284a; background: #10172a;
+  color: #9aa3b2; font-size: 12px;
+}
+.me {
+  background: #1e2bb5; color: #fff; border-color: #2c4cff;
+}
+
+.select {
+  background: #0e1222; border: 1px solid #23284a; color: #fff;
+  border-radius: 10px; padding: 10px 12px;
+}
+
+.grid {
+  display: grid; grid-template-columns: 2fr 1fr; gap: 16px;
+}
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: 1fr; }
+}
+
+.card {
+  background: #161a2e; border: 1px solid #23284a;
+  border-radius: 12px; padding: 12px;
+}
+.cardTitle { margin: 0 0 8px 0; }
+
+.banner {
+  background: #0f142a;
+  border: 1px solid #394175;
+  border-radius: 10px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+}
+
+/* ===== Listas / ranking ===== */
+.list { margin: 0; padding: 0; list-style: none; }
+.listItem {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid #23284a;
+}
+
+.badgeDead {
+  margin-left: 8px; padding: 2px 6px; font-size: 12px;
+  border-radius: 999px; background: #5e2222; color: #fff;
+}
+
+/* ===== Botones ===== */
+.btn {
+  border-radius: 12px; border: 1px solid #23284a;
+  padding: 12px 14px;
+  background: linear-gradient(180deg, #1f2a44, #101831);
+  color: #fff; cursor: pointer; font-size: 18px; line-height: 1;
+  transition: filter .15s ease, opacity .15s ease;
+}
+.btn:hover { filter: brightness(1.05); }
+.btn:disabled { opacity: .45; cursor: not-allowed; filter: none; }
+
+.btnGood { background: #12331e; border-color: #1e5b34; }
+.btnBad  { background: #3a1313; border-color: #5e2222; }
+.btnWarn { background: #3d2b10; border-color: #6b4e1a; }
+.btnPrimary { background: linear-gradient(180deg, #2c4cff, #1e2bb5); }
+
+/* Grillas de botones */
+.btnsGrid {
+  display: grid; grid-template-columns: repeat(6, minmax(0,1fr));
+  gap: 8px; margin-top: 12px;
+}
+@media (max-width: 768px) {
+  .btnsGrid { grid-template-columns: repeat(3, minmax(0,1fr)); }
+}
+
+/* ===== Historial ===== */
+.hist { max-height: 420px; overflow: auto; }
+.histRow {
+  display: flex; gap: 8px; font-size: 14px;
+  border-bottom: 1px solid #23284a; padding: 6px 0;
+}
+.time { opacity: .6; }
+.amtPlus { margin-left: auto; color: #22c55e; font-weight: 700; }
+.amtMinus { margin-left: auto; color: #ef4444; font-weight: 700; }
+
+/* ===== Modal genérico ===== */
+.modalOverlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,.5);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 50;
+}
+.modal {
+  width: min(520px, 92vw);
+  background: #0f142a; border: 1px solid #23284a;
+  border-radius: 12px; padding: 16px;
+}
+.modalTitle { margin: 0 0 10px 0; }
+.row {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 10px; margin-bottom: 10px;
+}
+@media (max-width: 520px) {
+  .row { grid-template-columns: 1fr; }
+}
+.input, .selectInput {
+  width: 100%; padding: 10px 12px; border-radius: 10px;
+  border: 1px solid #23284a; background: #0e1222; color: #fff;
+}
+.modalActions {
+  display: flex; justify-content: flex-end;
+  gap: 8px; margin-top: 8px;
+}
+
+/* Pozo: botones más legibles y con ancho uniforme */
+.btnsGrid { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 8px; }
+aside .btnsGrid { grid-template-columns: repeat(3, minmax(0,1fr)); } /* Aportar / Entregar / Resetear */
+.btn {
+  min-height: 42px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,.06);
+  background: rgba(255,255,255,.06);
+}
+.btn:disabled { opacity: .45; cursor: not-allowed; }

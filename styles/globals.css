@@ -1,0 +1,29 @@
+/* Paleta global + estilos base */
+:root {
+  --bg: #0e1020;
+  --card: #161a2e;
+  --border: #23284a;
+  --muted: #9aa3b2;
+  --good: #22c55e;
+  --bad: #ef4444;
+  --accent: #6ee7ff;
+  --warn: #fbbf24;
+}
+
+html, body {
+  background: var(--bg);
+  color: #fff;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Ubuntu;
+  margin: 0;
+  padding: 0;
+}
+
+* { box-sizing: border-box; }
+
+a { color: var(--accent); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* Útil en móviles para no hacer zoom al enfocar inputs numéricos */
+input, select, button {
+  font: inherit;
+}
